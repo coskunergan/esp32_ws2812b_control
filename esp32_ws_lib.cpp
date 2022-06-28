@@ -15,8 +15,8 @@ Freenove_ESP32_WS2812 strip;
 const LedColorBuffer_t ws_color_table[NUMBER_OF_COLOR] =
 {
     {0x00, 0x00, 0x00}, // BLANK_COLOR
-    {0x00, 0xFF, 0x00}, // RED_COLOR
-    {0xFF, 0x00, 0x00}, // GREEN_COLOR
+    {0xFF, 0x00, 0x00}, // RED_COLOR
+    {0x00, 0xFF, 0x00}, // GREEN_COLOR
     {0x00, 0x00, 0xFF}, // BLUE_COLOR
     {0x00, 0xFF, 0xFF}, // CYAN_COLOR
     {0xFF, 0x00, 0xFF}, // MAGENTA_COLOR
@@ -37,7 +37,7 @@ void WsLed_Control::init()
 {
     for(int zone = 0; zone < LED_ZONE_NUMBER; zone++)
     {
-        set_zone_color((LedPcb_t)zone, BLANK);
+        set_zone_color((Led_Zone_t)zone, BLANK);
     }
     strip.begin();
     strip.setBrightness(20);
@@ -64,7 +64,7 @@ void WsLed_Control::loop()
     }
 }
 /******************************************************/
-void WsLed_Control::set_zone_color(LedPcb_t zone, Colors_t color)
+void WsLed_Control::set_zone_color(Led_Zone_t zone, Colors_t color)
 {
     led_color_zone[zone].red = ws_color_table[color].red;
     led_color_zone[zone].green = ws_color_table[color].green;

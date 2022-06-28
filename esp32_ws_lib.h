@@ -48,9 +48,9 @@ typedef enum
     LED_ZONE3,
     LED_ZONE4,
     LED_ZONE_NUMBER
-} LedPcb_t;
+} Led_Zone_t;
 
-const LedPcb_t LedZoneArray[] =
+const Led_Zone_t LedZoneArray[] =
 {
     LED_ZONE1,
     LED_ZONE2,
@@ -75,7 +75,7 @@ public:
     WsLed_Control(uint8_t pin);
     void init();
     void loop();
-    void set_zone_color(LedPcb_t zone, Colors_t color);
+    void set_zone_color(Led_Zone_t zone, Colors_t color);
     void set_brightness(uint8_t brightness);
     uint8_t get_api_version();
 };
